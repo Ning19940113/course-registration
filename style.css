@@ -11,14 +11,15 @@
     max-width: 1200px;
     margin: 0 auto;
     padding-top: 20px;
-    background: linear-gradient(90deg, #003366, #ff6600); /* 深蓝色和橙色交替 */
+    background-color: #f5c2a1; /* 淡橙色背景 */
 }
 
 /* Header styles */
 h1 {
     text-align: center;
-    color: white;
+    color: #003366; /* 深蓝色 */
     font-size: 2rem;
+    font-weight: bold; /* 加粗显示 */
     margin-bottom: 20px;
 }
 
@@ -30,6 +31,14 @@ form {
 
 .form-group {
     margin-bottom: 15px;
+}
+
+/* Label styles */
+label {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    display: inline-block;
+    font-weight: bold; /* 标题加粗 */
 }
 
 /* Input styles */
@@ -63,11 +72,16 @@ button:hover {
     background-color: #ff6f00;
 }
 
-/* Label styles */
-label {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-    display: inline-block;
+/* Layout adjustments for subject and time options */
+.subject-options, .time-options {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.subject-options input, .time-options input {
+    width: 30%; /* 使得每个选项能横向排列 */
+    margin-bottom: 10px;
 }
 
 /* Responsive styles */
@@ -78,5 +92,9 @@ label {
 
     .form-group {
         margin-bottom: 12px;
+    }
+
+    .subject-options input, .time-options input {
+        width: 48%; /* 小屏幕时，选择项宽度调整 */
     }
 }
