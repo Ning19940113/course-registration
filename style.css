@@ -7,10 +7,9 @@
 
 /* Container styles */
 .container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-top: 20px;
+    width: 100%; /* 让容器宽度占满整个页面 */
+    max-width: none; /* 去除最大宽度限制 */
+    padding: 20px; /* 添加内边距，让内容不贴边 */
     background-color: #f5c2a1; /* 淡橙色背景 */
 }
 
@@ -27,10 +26,10 @@ h1 {
 form {
     display: flex;
     flex-direction: column;
-}
-
-.form-group {
-    margin-bottom: 15px;
+    background-color: #ffffff; /* 表单内背景为白色 */
+    padding: 20px;
+    border-radius: 8px; /* 圆角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
 }
 
 /* Label styles */
@@ -77,10 +76,11 @@ button:hover {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    gap: 10px; /* 增加选项间距 */
 }
 
 .subject-options input, .time-options input {
-    width: 30%; /* 使得每个选项能横向排列 */
+    flex: 1 1 30%; /* 让每个选项占一行的30%，适应横向排列 */
     margin-bottom: 10px;
 }
 
@@ -95,6 +95,6 @@ button:hover {
     }
 
     .subject-options input, .time-options input {
-        width: 48%; /* 小屏幕时，选择项宽度调整 */
+        flex: 1 1 48%; /* 小屏幕时调整选项宽度 */
     }
 }
