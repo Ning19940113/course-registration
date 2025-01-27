@@ -1,6 +1,6 @@
-/* 设置 logo 大小为标题的大小 */
+/* 设置 logo 大小为和标题相同大小 */
 .logo {
-  width: 180px;  /* 缩小 logo */
+  width: 150px;  /* 缩小 logo 到和标题一样大小 */
   height: auto;
   display: block;
   margin: 0 auto;
@@ -54,17 +54,16 @@ button[type="submit"]:hover {
   background-color: #45a049;
 }
 
-/* 设置已选科目和时间段的显示 */
-#selected-subjects, #selected-times {
+/* 设置已选科目、时间和时间段的显示 */
+#selected-subjects, #selected-times, #selected-time-slots {
   font-size: 14px;  /* 确保已选科目和时间的显示大小 */
   margin-bottom: 20px;
 }
 
-#selected-subjects p, #selected-times p {
+#selected-subjects p, #selected-times p, #selected-time-slots p {
   font-size: 16px;
 }
 
-/* 已选择科目和时间的显示样式 */
 .selected {
   font-weight: bold;
   color: #333;
