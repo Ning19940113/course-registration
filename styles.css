@@ -1,0 +1,110 @@
+/* styles.css */
+
+/* 给整个页面加一个背景色，设置默认字体 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;  /* 浅灰色背景 */
+}
+
+/* 表单容器居中显示，并设置最大宽度 */
+.container {
+    max-width: 600px;  /* 最大宽度600px */
+    margin: 50px auto; /* 上下50px的间距，左右自动 */
+    padding: 20px;
+    background-color: #fff;  /* 白色背景 */
+    border-radius: 8px;  /* 圆角 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
+}
+
+/* 标题样式居中 */
+h1 {
+    text-align: center;
+    margin-bottom: 20px; /* 标题底部间距 */
+}
+
+/* 每个表单项的样式 */
+.form-group {
+    margin-bottom: 15px; /* 每个表单项的下方间距 */
+}
+
+/* 标签样式 */
+label {
+    display: block; /* 确保标签占据一整行 */
+    margin-bottom: 5px;  /* 标签和输入框之间的间距 */
+}
+
+/* 输入框、下拉框、按钮统一样式 */
+input, select, textarea, button {
+    width: 100%;  /* 让所有表单项宽度100% */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;  /* 边框颜色 */
+    border-radius: 4px;  /* 圆角边框 */
+    margin-bottom: 10px;  /* 表单项之间的间距 */
+}
+
+/* 提交按钮样式 */
+button {
+    background-color: #4CAF50; /* 绿色按钮 */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 15px;
+}
+
+button:hover {
+    background-color: #45a049; /* 鼠标悬停时按钮变色 */
+}
+
+/* 自定义文本框样式 */
+textarea {
+    height: 100px;  /* 高度100px */
+    resize: none;   /* 禁止调整大小 */
+}
+
+/* 选中的科目和时间段的文本 */
+#selected-subjects, #selected-times {
+    font-size: 14px;
+    color: #555;
+    margin-top: 10px; /* 上方间距 */
+}
+
+/* 表单提交按钮 */
+button[type="submit"] {
+    width: 100%;
+    font-size: 20px;
+    padding: 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* 样式调整 */
+label, select, input, textarea {
+    font-size: 16px;
+}
+
+/* 小屏幕适配 */
+@media (max-width: 600px) {
+    .container {
+        margin: 20px;  /* 减小容器的外边距 */
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+    
+    label, select, input, textarea, button {
+        font-size: 14px; /* 在小屏幕上减少字体大小 */
+    }
+}
