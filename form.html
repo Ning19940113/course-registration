@@ -4,72 +4,84 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>双研教育报名系统</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- 页头包含 logo 和标题 -->
-  <header>
-    <img src="logo.jpg" alt="双研教育" class="logo"> <!-- 更新为 logo.jpg -->
-    <h1>双研教育报名系统</h1>
-  </header>
+  <img src="logo.png" alt="双研教育" class="logo">
+  <h1>双研教育报名系统</h1>
 
-  <!-- 表单内容 -->
-  <main>
-    <form action="#" method="POST">
-      <!-- 学生姓名 -->
-      <label for="name">学生姓名：</label>
-      <input type="text" id="name" name="name" required>
+  <!-- 显示已选择的科目 -->
+  <div id="selected-subjects">
+    <p>已选择的科目：<span id="subject-list"></span></p>
+  </div>
 
-      <!-- 年级 -->
-      <label for="grade">年级：</label>
+  <!-- 显示已选择的意向上课时间 -->
+  <div id="selected-times">
+    <p>已选择的意向上课时间：<span id="time-list"></span></p>
+  </div>
+
+  <form>
+    <!-- 学生姓名 -->
+    <div>
+      <label for="student-name">学生姓名:</label>
+      <input type="text" id="student-name" name="student-name" required>
+    </div>
+
+    <!-- 年级 -->
+    <div>
+      <label for="grade">年级:</label>
       <select id="grade" name="grade" required>
-        <option value="grade1">初中一年级</option>
-        <option value="grade2">初中二年级</option>
-        <option value="grade3">初中三年级</option>
+        <option value="1">初中一年级</option>
+        <option value="2">初中二年级</option>
+        <option value="3">初中三年级</option>
       </select>
+    </div>
 
-      <!-- 科目 -->
-      <label for="subjects">选择科目：</label>
+    <!-- 科目 -->
+    <div>
+      <label for="subjects">选择科目:</label>
       <select id="subjects" name="subjects" multiple required>
         <option value="math">数学</option>
         <option value="english">英语</option>
         <option value="physics">物理</option>
       </select>
+    </div>
 
-      <!-- 意向上课时间 -->
-      <label for="weekday">意向上课时间：</label>
-      <select id="weekday" name="weekday" multiple required>
-        <option value="mon">周一</option>
-        <option value="tue">周二</option>
-        <option value="wed">周三</option>
-        <option value="thu">周四</option>
-        <option value="fri">周五</option>
-        <option value="sat">周六</option>
-        <option value="sun">周日</option>
+    <!-- 意向上课时间 -->
+    <div>
+      <label for="times">选择意向上课时间:</label>
+      <select id="times" name="times" multiple required>
+        <option value="monday">周一</option>
+        <option value="tuesday">周二</option>
+        <option value="wednesday">周三</option>
+        <option value="thursday">周四</option>
+        <option value="friday">周五</option>
+        <option value="saturday">周六</option>
+        <option value="sunday">周日</option>
       </select>
+    </div>
 
-      <!-- 选择具体时间段 -->
-      <label for="timeslot">具体时间段：</label>
-      <select id="timeslot" name="timeslot" required>
+    <!-- 具体时间段 -->
+    <div>
+      <label for="time-slots">选择具体时间段:</label>
+      <select id="time-slots" name="time-slots" multiple required>
         <option value="10:00-12:00">10:00-12:00</option>
         <option value="13:30-15:30">13:30-15:30</option>
         <option value="16:00-18:00">16:00-18:00</option>
         <option value="18:30-20:30">18:30-20:30</option>
       </select>
+    </div>
 
-      <!-- 其他时间段 -->
-      <label for="other_time">其他时间段：</label>
-      <input type="text" id="other_time" name="other_time" placeholder="填写其他时间段" class="input-small">
+    <!-- 备注 -->
+    <div>
+      <label for="remarks">备注:</label>
+      <textarea id="remarks" name="remarks"></textarea>
+    </div>
 
-      <!-- 备注 -->
-      <label for="remarks">备注：</label>
-      <textarea id="remarks" name="remarks" placeholder="填写备注" class="input-small"></textarea>
+    <!-- 提交按钮 -->
+    <button type="submit">提交报名</button>
+  </form>
 
-      <!-- 提交按钮 -->
-      <button type="submit">提交报名</button>
-    </form>
-  </main>
-
-  <script src="script.js"></script> <!-- 加载 JS 文件 -->
+  <script src="script.js"></script>
 </body>
 </html>

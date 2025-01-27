@@ -1,71 +1,53 @@
-/* 页面基本样式 */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f4f4f4;
-}
-
-/* 页头 */
-header {
-  text-align: center;
-  padding: 20px;
-  background-color: #0066cc; /* 深蓝色背景 */
-  color: white;
-}
-
+/* 设置 logo 大小 */
 .logo {
-  width: 150px;
+  width: 120px;  /* 你可以根据需要调整大小 */
   height: auto;
   display: block;
   margin: 0 auto;
 }
 
-/* 表单样式 */
-main {
-  padding: 20px;
+/* 设置标题的样式 */
+h1 {
+  font-size: 24px;  /* 调整字体大小 */
+  text-align: center;
+  margin-top: 10px;
 }
 
+/* 优化表单布局 */
 form {
-  max-width: 600px;
+  max-width: 800px;
   margin: 0 auto;
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-label {
-  display: block;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-input, select, textarea {
-  width: 100%;
   padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
 }
 
-.input-small {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
-}
-
-/* 提交按钮样式 */
-button {
-  padding: 12px 20px;
-  background-color: #ff6600; /* 橙色按钮 */
-  border: none;
-  border-radius: 4px;
+/* 提交按钮的样式 */
+button[type="submit"] {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 20px;
+  background-color: #4CAF50;
   color: white;
+  border: none;
+  border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #e65c00;
+/* 提交按钮悬停效果 */
+button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* 调整表单项之间的间距 */
+form div {
+  margin-bottom: 15px;
+}
+
+/* 输入框和选择框的样式 */
+select, input[type="text"], input[type="date"] {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
