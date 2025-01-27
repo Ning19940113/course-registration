@@ -1,126 +1,119 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>双研教育报名系统</title>
-  <style>
-    /* 基本样式 */
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-    }
-    form {
-      max-width: 600px;
-      margin: 0 auto;
-      background-color: #f9f9f9;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    h1 {
-      text-align: center;
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-    label {
-      display: block;
-      margin: 10px 0 5px;
-    }
-    input[type="text"],
-    select,
-    input[type="checkbox"] {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 10px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
-    }
-    input[type="checkbox"] {
-      width: auto;
-    }
-    .time-options {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .time-option {
-      flex: 1 1 30%;
-    }
-    .time-option input {
-      margin-right: 5px;
-    }
-    button {
-      width: 100%;
-      padding: 10px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双研教育报名系统</title>
+    <link rel="stylesheet" href="styles.css"> <!-- 如果有外部CSS文件 -->
+    <script src="scripts.js"></script> <!-- 如果有外部JS文件 -->
 </head>
 <body>
-  <h1>双研教育报名系统</h1>
-  <form method="POST" action="/submit">
-    <!-- 学生姓名 -->
-    <label for="student_name">学生姓名</label>
-    <input type="text" id="student_name" name="student_name" required>
+    <div class="container">
+        <h1>双研教育报名系统</h1>
 
-    <!-- 年级 -->
-    <label for="grade">年级</label>
-    <select id="grade" name="grade" required>
-      <option value="初一">初一</option>
-      <option value="初二">初二</option>
-      <option value="初三">初三</option>
-    </select>
+        <form id="registration-form">
+            <!-- 学生姓名 -->
+            <div class="form-group">
+                <label for="student-name">学生姓名</label>
+                <input type="text" id="student-name" name="student-name" required>
+            </div>
 
-    <!-- 科目 -->
-    <label for="subjects">科目</label>
-    <select id="subjects" name="subjects" multiple required>
-      <option value="数学">数学</option>
-      <option value="英语">英语</option>
-      <option value="物理">物理</option>
-    </select>
+            <!-- 年级 -->
+            <div class="form-group">
+                <label for="grade">年级</label>
+                <select id="grade" name="grade" required>
+                    <option value="1">初中一年级</option>
+                    <option value="2">初中二年级</option>
+                    <option value="3">初中三年级</option>
+                </select>
+            </div>
 
-    <!-- 意向上课时间 -->
-    <label for="time_days">选择上课的日期</label>
-    <select id="time_days" name="time_days" multiple required>
-      <option value="周一">周一</option>
-      <option value="周二">周二</option>
-      <option value="周三">周三</option>
-      <option value="周四">周四</option>
-      <option value="周五">周五</option>
-      <option value="周六">周六</option>
-      <option value="周日">周日</option>
-    </select>
+            <!-- 科目 -->
+            <div class="form-group">
+                <label for="subjects">科目</label>
+                <select id="subjects" name="subjects" multiple required onchange="updateSelectedSubjects()">
+                    <option value="math">数学</option>
+                    <option value="english">英语</option>
+                    <option value="physics">物理</option>
+                </select>
+                <div id="selected-subjects"></div> <!-- 用于显示选择的科目 -->
+            </div>
 
-    <label for="time_slots">选择具体时间段</label>
-    <div class="time-options" id="time-slots">
-      <div class="time-option">
-        <input type="checkbox" id="slot1" name="time_slots" value="10:00-12:00">
-        <label for="slot1">10:00-12:00</label>
-      </div>
-      <div class="time-option">
-        <input type="checkbox" id="slot2" name="time_slots" value="13:30-15:30">
-        <label for="slot2">13:30-15:30</label>
-      </div>
-      <div class="time-option">
-        <input type="checkbox" id="slot3" name="time_slots" value="16:00-18:00">
-        <label for="slot3">16:00-18:00</label>
-      </div>
-      <div class="time-option">
-        <input type="checkbox" id="slot4" name="time_slots" value="18:30-20:30">
-        <label for="slot4">18:30-20:30</label>
-      </div>
+            <!-- 上课时间 -->
+            <div class="form-group">
+                <label for="class-time">意向上课时间</label>
+                <select id="class-time" name="class-time" multiple required onchange="updateSelectedTimes()">
+                    <option value="10:00-12:00">10:00-12:00</option>
+                    <option value="13:30-15:30">13:30-15:30</option>
+                    <option value="16:00-18:00">16:00-18:00</option>
+                    <option value="18:30-20:30">18:30-20:30</option>
+                </select>
+                <div id="selected-times"></div> <!-- 用于显示选择的时间段 -->
+            </div>
+
+            <!-- 星期几 -->
+            <div class="form-group">
+                <label for="weekdays">星期几</label>
+                <select id="weekdays" name="weekdays" multiple required>
+                    <option value="monday">周一</option>
+                    <option value="tuesday">周二</option>
+                    <option value="wednesday">周三</option>
+                    <option value="thursday">周四</option>
+                    <option value="friday">周五</option>
+                    <option value="saturday">周六</option>
+                    <option value="sunday">周日</option>
+                </select>
+            </div>
+
+            <!-- 自定义时间段 -->
+            <div class="form-group">
+                <label for="custom-time">其他时间段</label>
+                <input type="text" id="custom-time" name="custom-time" placeholder="请输入自定义时间段">
+            </div>
+
+            <!-- 备注 -->
+            <div class="form-group">
+                <label for="comments">备注</label>
+                <textarea id="comments" name="comments" placeholder="填写备注（可选）"></textarea>
+            </div>
+
+            <!-- 提交按钮 -->
+            <button type="submit">提交报名</button>
+        </form>
     </div>
 
-    <button type="submit">提交报名</button>
-  </form>
+    <script>
+        // 更新已选择的科目
+        function updateSelectedSubjects() {
+            const selectedSubjects = document.getElementById('subjects').selectedOptions;
+            let subjectsText = '已选择科目：';
+            for (let i = 0; i < selectedSubjects.length; i++) {
+                subjectsText += selectedSubjects[i].text + (i < selectedSubjects.length - 1 ? ', ' : '');
+            }
+            document.getElementById('selected-subjects').innerText = subjectsText;
+        }
+
+        // 更新已选择的时间
+        function updateSelectedTimes() {
+            const selectedTimes = document.getElementById('class-time').selectedOptions;
+            let timesText = '已选择时间：';
+            for (let i = 0; i < selectedTimes.length; i++) {
+                timesText += selectedTimes[i].text + (i < selectedTimes.length - 1 ? ', ' : '');
+            }
+            document.getElementById('selected-times').innerText = timesText;
+        }
+
+        // 表单提交前检查必填项
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            if (!document.getElementById('student-name').value ||
+                !document.getElementById('grade').value ||
+                !document.getElementById('subjects').value ||
+                !document.getElementById('class-time').value ||
+                !document.getElementById('weekdays').value) {
+                e.preventDefault();
+                alert('所有必填项必须填写完整！');
+            }
+        });
+    </script>
 </body>
 </html>
