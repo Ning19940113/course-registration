@@ -74,15 +74,15 @@ button:hover {
 
 /* Layout adjustments for subject and time options */
 .subject-options, .time-options {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 10px; /* 让选项之间有间隙 */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3列布局 */
+    gap: 15px; /* 间隙 */
+    margin-bottom: 15px;
 }
 
 .subject-options input, .time-options input {
-    width: 30%; /* 使得每个选项能横向排列 */
-    margin-bottom: 10px;
+    width: 100%; /* 每个选项占满1列 */
+    padding: 8px;
 }
 
 /* Responsive styles */
@@ -95,7 +95,7 @@ button:hover {
         margin-bottom: 12px;
     }
 
-    .subject-options input, .time-options input {
-        width: 48%; /* 小屏幕时，选择项宽度调整 */
+    .subject-options, .time-options {
+        grid-template-columns: repeat(2, 1fr); /* 小屏幕时，每行展示2列 */
     }
 }
