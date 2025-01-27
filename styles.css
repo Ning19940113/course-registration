@@ -61,7 +61,7 @@ button:hover {
 
 /* 自定义文本框样式 */
 textarea {
-    height: 100px;  /* 高度100px */
+    height: 80px;  /* 高度调整为80px，避免过大 */
     resize: none;   /* 禁止调整大小 */
 }
 

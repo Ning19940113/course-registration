@@ -10,7 +10,7 @@
     <div class="container">
         <h1>双研教育报名系统</h1>
         
-        <form action="submit_form" method="post">
+        <form action="submit_form" method="post" id="registration-form">
             <!-- 学生姓名 -->
             <div class="form-group">
                 <label for="name">学生姓名</label>
@@ -78,8 +78,28 @@
             <button type="submit">提交报名</button>
         </form>
 
+        <!-- 展示选择的科目和时间 -->
         <div id="selected-subjects"></div>
         <div id="selected-times"></div>
     </div>
+
+    <script>
+        document.getElementById('registration-form').addEventListener('submit', function(e) {
+            e.preventDefault();  // 阻止默认提交
+
+            // 获取选中的科目和时间
+            let selectedSubjects = Array.from(document.getElementById('subjects').selectedOptions)
+                .map(option => option.value);
+            let selectedTimes = Array.from(document.getElementById('specific-time').selectedOptions)
+                .map(option => option.value);
+            
+            // 显示选择的科目和时间
+            document.getElementById('selected-subjects').innerHTML = '选择的科目: ' + selectedSubjects.join(', ');
+            document.getElementById('selected-times').innerHTML = '选择的时间: ' + selectedTimes.join(', ');
+
+            // 提交表单
+            alert('报名提交成功！');
+        });
+    </script>
 </body>
 </html>
