@@ -17,12 +17,12 @@ h1 {
   color: white;
 }
 
-/* 表单容器 */
+/* 表单容器，添加背景颜色 */
 form {
   max-width: 800px;
   margin: 20px auto;
   padding: 20px;
-  background-color: white;
+  background-color: #f8f8f8;  /* 表单背景颜色 */
   color: #000;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
