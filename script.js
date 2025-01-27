@@ -1,11 +1,20 @@
-// 监听科目选择变化，并显示已选择的科目
-document.getElementById("subjects").addEventListener("change", function() {
-    var selectedSubjects = Array.from(this.selectedOptions).map(option => option.value);
-    document.getElementById("selected-subjects").innerText = "已选择科目: " + selectedSubjects.join(", ");
-});
+document.addEventListener('DOMContentLoaded', function() {
+  const subjects = document.getElementById('subjects');
+  const timeslot = document.getElementById('timeslot');
+  const otherTime = document.getElementById('other_time');
+  const remarks = document.getElementById('remarks');
+  
+  // 确保提交按钮只能在必填项填满后才可点击
+  document.querySelector('form').addEventListener('submit', function(event) {
+    const name = document.getElementById('name').value;
+    const grade = document.getElementById('grade').value;
+    const subjectSelected = subjects.selectedOptions.length > 0;
+    const timeslotSelected = timeslot.value !== "";
+    const weekdaySelected = document.getElementById('weekday').selectedOptions.length > 0;
 
-// 监听时间段选择变化，并显示已选择的时间段
-document.getElementById("time").addEventListener("change", function() {
-    var selectedTime = Array.from(this.selectedOptions).map(option => option.value);
-    document.getElementById("selected-time").innerText = "已选择时间: " + selectedTime.join(", ");
+    if (!name || !grade || !subjectSelected || !timeslotSelected || !weekdaySelected) {
+      alert("所有必填项必须填写！");
+      event.preventDefault();
+    }
+  });
 });
