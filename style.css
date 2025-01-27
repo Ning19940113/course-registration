@@ -11,13 +11,13 @@
     max-width: 1200px;
     margin: 0 auto;
     padding-top: 20px;
-    background-color: #f0f4f8;
+    background: linear-gradient(90deg, #003366, #ff6600); /* 深蓝色和橙色交替 */
 }
 
 /* Header styles */
 h1 {
     text-align: center;
-    color: #004b87;
+    color: white;
     font-size: 2rem;
     margin-bottom: 20px;
 }
