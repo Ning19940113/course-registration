@@ -1,126 +1,45 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>双研教育报名系统</title>
-    <link rel="stylesheet" href="style.css"> <!-- 确保引用的是 style.css -->
-    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <!-- 主体部分 -->
     <div class="container">
         <h1>双研教育报名系统</h1>
-
-        <form id="registration-form" action="#" method="post">
-            
-            <!-- 学生姓名 -->
+        <form>
             <div class="form-group">
-                <label for="student-name">学生姓名</label>
-                <input type="text" id="student-name" name="student-name" required>
+                <label for="name">学生姓名</label>
+                <input type="text" id="name" name="name" required>
             </div>
-
-            <!-- 所在学校 -->
             <div class="form-group">
                 <label for="school">所在学校</label>
                 <input type="text" id="school" name="school" required>
             </div>
-
-            <!-- 年级 -->
-            <div class="form-group">
-                <label for="grade">年级</label>
-                <select id="grade" name="grade" required>
-                    <option value="1">初中一年级</option>
-                    <option value="2">初中二年级</option>
-                    <option value="3">初中三年级</option>
-                </select>
+            <div class="form-group subject-options">
+                <label for="subject">选择科目</label>
+                <input type="checkbox" name="subject" value="math" id="math"> 数学
+                <input type="checkbox" name="subject" value="english" id="english"> 英语
+                <input type="checkbox" name="subject" value="physics" id="physics"> 物理
             </div>
-
-            <!-- 科目 -->
-            <div class="form-group">
-                <label>选择科目</label>
-                <div>
-                    <input type="checkbox" id="math" name="subject" value="math">
-                    <label for="math">数学</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="english" name="subject" value="english">
-                    <label for="english">英语</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="physics" name="subject" value="physics">
-                    <label for="physics">物理</label>
-                </div>
+            <div class="form-group time-options">
+                <label for="time">选择意向上课时间</label>
+                <input type="checkbox" name="time" value="monday" id="monday"> 周一
+                <input type="checkbox" name="time" value="tuesday" id="tuesday"> 周二
+                <input type="checkbox" name="time" value="wednesday" id="wednesday"> 周三
+                <input type="checkbox" name="time" value="thursday" id="thursday"> 周四
+                <input type="checkbox" name="time" value="friday" id="friday"> 周五
+                <input type="checkbox" name="time" value="saturday" id="saturday"> 周六
+                <input type="checkbox" name="time" value="sunday" id="sunday"> 周日
             </div>
-
-            <!-- 意向上课时间 -->
             <div class="form-group">
-                <label>选择意向上课时间</label>
-                <div>
-                    <input type="checkbox" id="monday" name="time" value="周一">
-                    <label for="monday">周一</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="tuesday" name="time" value="周二">
-                    <label for="tuesday">周二</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="wednesday" name="time" value="周三">
-                    <label for="wednesday">周三</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="thursday" name="time" value="周四">
-                    <label for="thursday">周四</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="friday" name="time" value="周五">
-                    <label for="friday">周五</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="saturday" name="time" value="周六">
-                    <label for="saturday">周六</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="sunday" name="time" value="周日">
-                    <label for="sunday">周日</label>
-                </div>
+                <label for="notes">备注</label>
+                <textarea id="notes" name="notes"></textarea>
             </div>
-
-            <!-- 选择时间段 -->
-            <div class="form-group">
-                <label>选择具体时间段</label>
-                <div>
-                    <input type="checkbox" id="morning" name="time-slot" value="10:00-12:00">
-                    <label for="morning">10:00-12:00</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="afternoon" name="time-slot" value="13:30-15:30">
-                    <label for="afternoon">13:30-15:30</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="late-afternoon" name="time-slot" value="16:00-18:00">
-                    <label for="late-afternoon">16:00-18:00</label>
-                </div>
-                <div>
-                    <input type="checkbox" id="evening" name="time-slot" value="18:30-20:30">
-                    <label for="evening">18:30-20:30</label>
-                </div>
-            </div>
-
-            <!-- 备注 -->
-            <div class="form-group">
-                <label for="remarks">备注</label>
-                <textarea id="remarks" name="remarks"></textarea>
-            </div>
-
-            <!-- 提交按钮 -->
-            <div class="form-group">
-                <button type="submit">提交报名</button>
-            </div>
+            <button type="submit">提交报名</button>
         </form>
     </div>
-
 </body>
 </html>
