@@ -10,16 +10,6 @@
   <img src="logo.png" alt="双研教育" class="logo">
   <h1>双研教育报名系统</h1>
 
-  <!-- 显示已选择的科目 -->
-  <div id="selected-subjects">
-    <p>已选择的科目：<span id="subject-list"></span></p>
-  </div>
-
-  <!-- 显示已选择的意向上课时间 -->
-  <div id="selected-times">
-    <p>已选择的意向上课时间：<span id="time-list"></span></p>
-  </div>
-
   <form>
     <!-- 学生姓名 -->
     <div>
@@ -46,6 +36,10 @@
         <option value="physics">物理</option>
       </select>
     </div>
+    <!-- 显示已选择的科目 -->
+    <div id="selected-subjects">
+      <p>已选择的科目：<span id="subject-list" class="selected"></span></p>
+    </div>
 
     <!-- 意向上课时间 -->
     <div>
@@ -59,6 +53,10 @@
         <option value="saturday">周六</option>
         <option value="sunday">周日</option>
       </select>
+    </div>
+    <!-- 显示已选择的意向上课时间 -->
+    <div id="selected-times">
+      <p>已选择的意向上课时间：<span id="time-list" class="selected"></span></p>
     </div>
 
     <!-- 具体时间段 -->

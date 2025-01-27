@@ -1,6 +1,6 @@
-/* 设置 logo 大小 */
+/* 设置 logo 大小为标题的大小 */
 .logo {
-  width: 200px;  /* logo 大小调整 */
+  width: 180px;  /* 缩小 logo */
   height: auto;
   display: block;
   margin: 0 auto;
@@ -62,4 +62,10 @@ button[type="submit"]:hover {
 
 #selected-subjects p, #selected-times p {
   font-size: 16px;
+}
+
+/* 已选择科目和时间的显示样式 */
+.selected {
+  font-weight: bold;
+  color: #333;
 }
