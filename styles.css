@@ -1,24 +1,31 @@
-/* 设置 logo 大小为和标题相同大小 */
-.logo {
-  width: 150px;  /* 缩小 logo 到和标题一样大小 */
-  height: auto;
-  display: block;
-  margin: 0 auto;
+/* 设置背景颜色为深蓝色和橙色交替 */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom, #003366, #ff6600); /* 深蓝色和橙色交替背景 */
+  color: white;
+  text-align: center;
 }
 
-/* 设置标题的样式 */
+/* 设置标题居中 */
 h1 {
   font-size: 24px;  /* 标题大小 */
   text-align: center;
   margin-top: 10px;
   font-family: Arial, sans-serif;
+  color: white;
 }
 
-/* 优化表单布局 */
+/* 表单容器 */
 form {
   max-width: 800px;
   margin: 0 auto;
-  padding: 10px;
+  padding: 20px;
+  background-color: white;
+  color: #000;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* 输入框和选择框的样式 */
