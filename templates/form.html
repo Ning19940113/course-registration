@@ -4,82 +4,69 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>双研教育报名系统</title>
-    <link rel="stylesheet" href="styles.css">  <!-- 引入外部 CSS 文件 -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h1>双研教育报名系统</h1>
-        
-        <form action="submit_form" method="post">
-            <!-- 学生姓名 -->
-            <div class="form-group">
-                <label for="name">学生姓名</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-
-            <!-- 年级 -->
-            <div class="form-group">
-                <label for="grade">年级</label>
-                <select id="grade" name="grade" required>
-                    <option value="初中一年级">初中一年级</option>
-                    <option value="初中二年级">初中二年级</option>
-                    <option value="初中三年级">初中三年级</option>
-                </select>
-            </div>
-
-            <!-- 科目 -->
-            <div class="form-group">
-                <label for="subjects">科目</label>
-                <select id="subjects" name="subjects" multiple required>
-                    <option value="数学">数学</option>
-                    <option value="英语">英语</option>
-                    <option value="物理">物理</option>
-                </select>
-            </div>
-
-            <!-- 意向上课时间 -->
-            <div class="form-group">
-                <label for="intended-time">意向上课时间</label>
-                <select id="intended-time" name="intended-time" multiple required>
-                    <option value="周一">周一</option>
-                    <option value="周二">周二</option>
-                    <option value="周三">周三</option>
-                    <option value="周四">周四</option>
-                    <option value="周五">周五</option>
-                    <option value="周六">周六</option>
-                    <option value="周日">周日</option>
-                </select>
-            </div>
-
-            <!-- 具体时间段 -->
-            <div class="form-group">
-                <label for="specific-time">具体时间段</label>
-                <select id="specific-time" name="specific-time" multiple required>
-                    <option value="10:00-12:00">10:00-12:00</option>
-                    <option value="13:30-15:30">13:30-15:30</option>
-                    <option value="16:00-18:00">16:00-18:00</option>
-                    <option value="18:30-20:30">18:30-20:30</option>
-                </select>
-            </div>
-
-            <!-- 自定义时间段 -->
-            <div class="form-group">
-                <label for="custom-time">其他时间段</label>
-                <textarea id="custom-time" name="custom-time" placeholder="例如：19:00-21:00"></textarea>
-            </div>
-
-            <!-- 备注 -->
-            <div class="form-group">
-                <label for="remark">备注</label>
-                <textarea id="remark" name="remark" placeholder="填写其他备注"></textarea>
-            </div>
-
-            <!-- 提交按钮 -->
-            <button type="submit">提交报名</button>
-        </form>
-
-        <div id="selected-subjects"></div>
-        <div id="selected-times"></div>
+    <!-- Logo -->
+    <div class="logo-container">
+        <img src="images/logo.png" alt="双研教育 Logo" class="logo">
     </div>
+
+    <h1>双研教育报名系统</h1>
+
+    <form id="registration-form">
+        <!-- 学生姓名 -->
+        <label for="name">学生姓名</label>
+        <input type="text" id="name" name="name" required>
+
+        <!-- 年级 -->
+        <label for="grade">年级</label>
+        <select id="grade" name="grade" required>
+            <option value="grade-1">初中一年级</option>
+            <option value="grade-2">初中二年级</option>
+            <option value="grade-3">初中三年级</option>
+        </select>
+
+        <!-- 科目 -->
+        <label for="subjects">科目</label>
+        <select id="subjects" name="subjects" multiple required>
+            <option value="math">数学</option>
+            <option value="english">英语</option>
+            <option value="physics">物理</option>
+        </select>
+
+        <!-- 已选择科目展示 -->
+        <div id="selected-subjects"></div>
+
+        <!-- 意向上课时间 -->
+        <label for="days">意向上课时间</label>
+        <select id="days" name="days" multiple required>
+            <option value="mon">周一</option>
+            <option value="tue">周二</option>
+            <option value="wed">周三</option>
+            <option value="thu">周四</option>
+            <option value="fri">周五</option>
+            <option value="sat">周六</option>
+            <option value="sun">周日</option>
+        </select>
+
+        <!-- 具体时间段 -->
+        <label for="time">具体时间</label>
+        <select id="time" name="time" multiple required>
+            <option value="10:00-12:00">10:00-12:00</option>
+            <option value="13:30-15:30">13:30-15:30</option>
+            <option value="16:00-18:00">16:00-18:00</option>
+            <option value="18:30-20:30">18:30-20:30</option>
+        </select>
+
+        <!-- 备注 -->
+        <label for="notes">备注</label>
+        <textarea id="notes" name="notes"></textarea>
+
+        <!-- 提交按钮 -->
+        <button type="submit">提交报名</button>
+    </form>
+
+    <script src="script.js"></script>
 </body>
 </html>
