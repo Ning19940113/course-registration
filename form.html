@@ -5,210 +5,149 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>双研教育报名系统</title>
     <style>
+        /* 基础样式 */
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
         }
 
         form {
-            background-color: white;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 500px;
-            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
         }
 
         label {
-            font-weight: bold;
-            margin-bottom: 8px;
+            font-size: 14px;
+            margin-bottom: 5px;
             display: block;
+            color: #555;
         }
 
-        input[type="text"], select {
+        input[type="text"], select, input[type="checkbox"], input[type="radio"], input[type="time"] {
             width: 100%;
-            padding: 8px;
-            margin-bottom: 12px;
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 14px;
             border: 1px solid #ddd;
             border-radius: 4px;
         }
 
-        .form-row {
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .form-row label {
-            flex: 0 0 100px;
-        }
-
-        .form-row input, .form-row select {
-            flex: 1;
-        }
-
-        .form-row input[type="checkbox"] {
+        input[type="checkbox"], input[type="radio"] {
             width: auto;
+            margin-right: 10px;
         }
 
-        .form-row div {
-            margin-left: 120px;
+        .form-group.inline {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
 
-        input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        .form-group.inline > div {
+            flex: 1;
+            margin-right: 10px;
+        }
+
+        .form-group.inline > div:last-child {
+            margin-right: 0;
+        }
+
+        button {
             width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
         }
 
-        input[type="submit"]:hover {
-            background-color: #45a049;
+        button:hover {
+            background-color: #0056b3;
         }
 
-        /* 响应式布局 */
-        @media (max-width: 600px) {
-            .form-row {
-                flex-direction: column;
-                align-items: flex-start;
+        /* 手机端适配 */
+        @media (max-width: 768px) {
+            .form-group.inline > div {
+                flex: 1 1 45%;
             }
 
-            .form-row label {
-                margin-bottom: 5px;
+            .container {
+                padding: 10px;
             }
 
-            .form-row input, .form-row select {
-                width: 100%;
+            h1 {
+                font-size: 20px;
+            }
+
+            input, select, button {
+                font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
-    <form id="course-form">
-        <h2>双研教育报名系统</h2>
 
-        <!-- 学生姓名 -->
-        <div class="form-row">
-            <label>学生姓名:</label>
-            <input type="text" name="student-name">
-        </div>
-
-        <!-- 年级选择 -->
-        <div class="form-row">
-            <label>年级:</label>
-            <div>
-                <input type="radio" name="grade" value="初中一年级"> 初中一年级
-                <input type="radio" name="grade" value="初中二年级"> 初中二年级
-                <input type="radio" name="grade" value="初中三年级"> 初中三年级
+    <div class="container">
+        <h1>双研教育报名系统</h1>
+        <form id="registration-form">
+            <div class="form-group">
+                <label for="student-name">学生姓名</label>
+                <input type="text" id="student-name" name="student-name" required>
             </div>
-        </div>
 
-        <!-- 科目选择 -->
-        <div class="form-row">
-            <label>科目:</label>
-            <div>
-                <input type="checkbox" name="subject" value="数学"> 数学
-                <input type="checkbox" name="subject" value="英语"> 英语
-                <input type="checkbox" name="subject" value="物理"> 物理
+            <div class="form-group">
+                <label for="grade">年级</label>
+                <select id="grade" name="grade" required>
+                    <option value="grade-1">初中一年级</option>
+                    <option value="grade-2">初中二年级</option>
+                    <option value="grade-3">初中三年级</option>
+                </select>
             </div>
-        </div>
 
-        <!-- 动态生成时间选择 -->
-        <div id="time-container"></div>
+            <div class="form-group">
+                <label for="subjects">科目</label>
+                <div class="inline">
+                    <div><input type="checkbox" id="math" name="subjects" value="math"> 数学</div>
+                    <div><input type="checkbox" id="english" name="subjects" value="english"> 英语</div>
+                    <div><input type="checkbox" id="physics" name="subjects" value="physics"> 物理</div>
+                </div>
+            </div>
 
-        <!-- 提交按钮 -->
-        <input type="submit" value="提交">
-    </form>
+            <div class="form-group">
+                <label for="time">意向上课时间</label>
+                <select id="time" name="time" required>
+                    <option value="time-1">星期一 09:00 - 11:00</option>
+                    <option value="time-2">星期二 10:00 - 12:00</option>
+                    <option value="time-3">星期三 14:00 - 16:00</option>
+                    <!-- 添加更多时间选项 -->
+                </select>
+            </div>
 
-    <!-- 在这里加入 JavaScript 代码 -->
-    <script>
-        var timeSlots = {
-            "数学": {
-                "上午": ["星期一 9:00-11:00", "星期三 9:00-11:00"],
-                "下午": ["星期二 14:00-16:00", "星期四 14:00-16:00"],
-                "晚上": ["星期五 18:00-20:00"]
-            },
-            "英语": {
-                "上午": ["星期一 8:00-10:00", "星期三 8:00-10:00"],
-                "下午": ["星期二 13:00-15:00", "星期四 13:00-15:00"],
-                "晚上": ["星期五 19:00-21:00"]
-            },
-            "物理": {
-                "上午": ["星期二 10:00-12:00", "星期五 10:00-12:00"],
-                "下午": ["星期一 15:00-17:00", "星期四 15:00-17:00"],
-                "晚上": ["星期三 20:00-22:00"]
-            }
-        };
+            <button type="submit">提交报名</button>
+        </form>
+    </div>
 
-        function updateTimeOptions() {
-            var selectedSubjects = [];
-            var subjects = document.querySelectorAll('input[name="subject"]:checked');
-
-            subjects.forEach(function(subject) {
-                selectedSubjects.push(subject.value);
-            });
-
-            var timeContainer = document.getElementById('time-container');
-            timeContainer.innerHTML = ''; // 清空当前显示的时间段
-
-            selectedSubjects.forEach(function(subject) {
-                var timeLabel = document.createElement('label');
-                timeLabel.innerText = subject + ' 的意向上课时间：';
-
-                var timeSelect = document.createElement('select');
-                timeSelect.name = subject + '-time';
-                timeSelect.innerHTML = `
-                    <option value="">选择时间段</option>
-                    <option value="上午">上午</option>
-                    <option value="下午">下午</option>
-                    <option value="晚上">晚上</option>
-                `;
-
-                timeSelect.addEventListener('change', function(event) {
-                    var selectedTime = event.target.value;
-                    updateSpecificTime(subject, selectedTime);
-                });
-
-                timeContainer.appendChild(timeLabel);
-                timeContainer.appendChild(timeSelect);
-                timeContainer.appendChild(document.createElement('br'));
-            });
-        }
-
-        function updateSpecificTime(subject, timePeriod) {
-            var timeContainer = document.getElementById('time-container');
-            var existingSpecificTimeSelect = document.getElementById(subject + '-specific-time');
-            
-            if (existingSpecificTimeSelect) {
-                timeContainer.removeChild(existingSpecificTimeSelect);
-            }
-
-            if (timePeriod) {
-                var specificTimeSelect = document.createElement('select');
-                specificTimeSelect.id = subject + '-specific-time';
-                specificTimeSelect.name = subject + '-specific-time';
-
-                var options = timeSlots[subject][timePeriod];
-                options.forEach(function(option) {
-                    var optionElement = document.createElement('option');
-                    optionElement.value = option;
-                    optionElement.innerText = option;
-                    specificTimeSelect.appendChild(optionElement);
-                });
-
-                timeContainer.appendChild(specificTimeSelect);
-            }
-        }
-
-        // 当页面加载时，初始化时间选择
-        document.querySelectorAll('input[name="subject"]').forEach(function(input) {
-            input.addEventListener('change', updateTimeOptions);
-        });
-    </script>
 </body>
 </html>
