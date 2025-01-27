@@ -1,88 +1,104 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>双研教育报名系统</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双研教育报名系统</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>双研教育报名系统</h1>
+    <div class="container">
+        <div class="form-wrapper">
+            <h1>双研教育报名系统</h1>
+            
+            <form id="registration-form" action="#" method="POST">
+                <!-- 学生姓名 -->
+                <div class="form-group">
+                    <label for="student_name">学生姓名</label>
+                    <input type="text" class="form-control" id="student_name" name="student_name" required>
+                </div>
 
-  <form>
-    <!-- 学生姓名 -->
-    <div>
-      <label for="student-name">学生姓名:</label>
-      <input type="text" id="student-name" name="student-name" required>
+                <!-- 所在学校 -->
+                <div class="form-group">
+                    <label for="school">所在学校</label>
+                    <input type="text" class="form-control" id="school" name="school" required>
+                </div>
+
+                <!-- 年级 -->
+                <div class="form-group">
+                    <label for="grade">年级</label>
+                    <select class="form-control" id="grade" name="grade" required>
+                        <option value="1">初中一年级</option>
+                        <option value="2">初中二年级</option>
+                        <option value="3">初中三年级</option>
+                    </select>
+                </div>
+
+                <!-- 科目 -->
+                <div class="form-group">
+                    <label for="subject">科目</label><br>
+                    <input type="checkbox" id="math" name="subject" value="数学">
+                    <label for="math">数学</label><br>
+                    <input type="checkbox" id="english" name="subject" value="英语">
+                    <label for="english">英语</label><br>
+                    <input type="checkbox" id="physics" name="subject" value="物理">
+                    <label for="physics">物理</label>
+                </div>
+
+                <!-- 意向上课时间 -->
+                <div class="form-group">
+                    <label for="class_time">意向上课时间</label><br>
+                    <input type="checkbox" id="monday" name="class_time" value="周一">
+                    <label for="monday">周一</label><br>
+                    <input type="checkbox" id="tuesday" name="class_time" value="周二">
+                    <label for="tuesday">周二</label><br>
+                    <input type="checkbox" id="wednesday" name="class_time" value="周三">
+                    <label for="wednesday">周三</label><br>
+                    <input type="checkbox" id="thursday" name="class_time" value="周四">
+                    <label for="thursday">周四</label><br>
+                    <input type="checkbox" id="friday" name="class_time" value="周五">
+                    <label for="friday">周五</label><br>
+                    <input type="checkbox" id="saturday" name="class_time" value="周六">
+                    <label for="saturday">周六</label><br>
+                    <input type="checkbox" id="sunday" name="class_time" value="周日">
+                    <label for="sunday">周日</label>
+                </div>
+
+                <!-- 具体时间段 -->
+                <div class="form-group">
+                    <label for="time_slot">具体时间段</label><br>
+                    <input type="checkbox" id="time1" name="time_slot" value="10:00-12:00">
+                    <label for="time1">10:00-12:00</label><br>
+                    <input type="checkbox" id="time2" name="time_slot" value="13:30-15:30">
+                    <label for="time2">13:30-15:30</label><br>
+                    <input type="checkbox" id="time3" name="time_slot" value="16:00-18:00">
+                    <label for="time3">16:00-18:00</label><br>
+                    <input type="checkbox" id="time4" name="time_slot" value="18:30-20:30">
+                    <label for="time4">18:30-20:30</label><br>
+                    <input type="checkbox" id="time5" name="time_slot" value="其他">
+                    <label for="time5">其他</label><br>
+                    <input type="text" class="form-control" id="other_time" name="other_time" placeholder="请填写其他时间段">
+                </div>
+
+                <!-- 备注 -->
+                <div class="form-group">
+                    <label for="remarks">备注</label>
+                    <textarea class="form-control" id="remarks" name="remarks" rows="3"></textarea>
+                </div>
+
+                <!-- 提交按钮 -->
+                <button type="submit" class="btn btn-primary">提交报名</button>
+            </form>
+
+            <div id="selection-summary">
+                <h3>已选择项：</h3>
+                <p id="selected-subject"></p>
+                <p id="selected-class-time"></p>
+                <p id="selected-time-slot"></p>
+            </div>
+        </div>
     </div>
 
-    <!-- 年级 -->
-    <div>
-      <label for="grade">年级:</label>
-      <select id="grade" name="grade" required>
-        <option value="1">初中一年级</option>
-        <option value="2">初中二年级</option>
-        <option value="3">初中三年级</option>
-      </select>
-    </div>
-
-    <!-- 科目 -->
-    <div>
-      <label for="subjects">选择科目:</label>
-      <select id="subjects" name="subjects" multiple required>
-        <option value="math">数学</option>
-        <option value="english">英语</option>
-        <option value="physics">物理</option>
-      </select>
-    </div>
-    <!-- 显示已选择的科目 -->
-    <div id="selected-subjects">
-      <p>已选择的科目：<span id="subject-list" class="selected"></span></p>
-    </div>
-
-    <!-- 意向上课时间 -->
-    <div>
-      <label for="times">选择意向上课时间:</label>
-      <select id="times" name="times" multiple required>
-        <option value="monday">周一</option>
-        <option value="tuesday">周二</option>
-        <option value="wednesday">周三</option>
-        <option value="thursday">周四</option>
-        <option value="friday">周五</option>
-        <option value="saturday">周六</option>
-        <option value="sunday">周日</option>
-      </select>
-    </div>
-    <!-- 显示已选择的意向上课时间 -->
-    <div id="selected-times">
-      <p>已选择的意向上课时间：<span id="time-list" class="selected"></span></p>
-    </div>
-
-    <!-- 具体时间段 -->
-    <div>
-      <label for="time-slots">选择具体时间段:</label>
-      <select id="time-slots" name="time-slots" multiple required>
-        <option value="10:00-12:00">10:00-12:00</option>
-        <option value="13:30-15:30">13:30-15:30</option>
-        <option value="16:00-18:00">16:00-18:00</option>
-        <option value="18:30-20:30">18:30-20:30</option>
-      </select>
-    </div>
-    <!-- 显示已选择的时间段 -->
-    <div id="selected-time-slots">
-      <p>已选择的时间段：<span id="time-slot-list" class="selected"></span></p>
-    </div>
-
-    <!-- 备注 -->
-    <div>
-      <label for="remarks">备注:</label>
-      <textarea id="remarks" name="remarks"></textarea>
-    </div>
-
-    <!-- 提交按钮 -->
-    <button type="submit">提交报名</button>
-  </form>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

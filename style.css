@@ -1,77 +1,73 @@
-/* 设置背景颜色为深蓝色和橙色交替 */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: linear-gradient(to bottom, #003366, #ff6600); /* 深蓝色和橙色交替背景 */
-  color: white;
-  text-align: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #003366, #ff6600);
+    color: white;
+    margin: 0;
+    padding: 0;
 }
 
-/* 设置标题居中 */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.form-wrapper {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
 h1 {
-  font-size: 24px;  /* 标题大小 */
-  text-align: center;
-  margin-top: 20px;
-  font-family: Arial, sans-serif;
-  color: white;
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
 }
 
-/* 表单容器，添加背景颜色 */
-form {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #f8f8f8;  /* 表单背景颜色 */
-  color: #000;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+h3 {
+    font-size: 18px;
+    margin-top: 20px;
 }
 
-/* 输入框和选择框的样式 */
-select, input[type="text"], input[type="date"], textarea {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 14px;  /* 调整字体大小 */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
 }
 
-/* 表单项之间的间距 */
-form div {
-  margin-bottom: 20px;
+input[type="text"], input[type="email"], input[type="password"], textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
 }
 
-/* 提交按钮的样式 */
-button[type="submit"] {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
+textarea {
+    resize: vertical;
 }
 
-/* 提交按钮悬停效果 */
-button[type="submit"]:hover {
-  background-color: #45a049;
+button {
+    background-color: #ff6600;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 20px;
 }
 
-/* 设置已选科目、时间和时间段的显示 */
-#selected-subjects, #selected-times, #selected-time-slots {
-  font-size: 14px;  /* 确保已选科目和时间的显示大小 */
-  margin-bottom: 20px;
+button:hover {
+    background-color: #cc5200;
 }
 
-#selected-subjects p, #selected-times p, #selected-time-slots p {
-  font-size: 16px;
-}
-
-.selected {
-  font-weight: bold;
-  color: #333;
+#selection-summary {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: none;
 }
