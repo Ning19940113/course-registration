@@ -12,7 +12,7 @@ body {
 h1 {
   font-size: 24px;  /* 标题大小 */
   text-align: center;
-  margin-top: 10px;
+  margin-top: 20px;
   font-family: Arial, sans-serif;
   color: white;
 }
@@ -20,7 +20,7 @@ h1 {
 /* 表单容器 */
 form {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 20px;
   background-color: white;
   color: #000;
@@ -40,7 +40,7 @@ select, input[type="text"], input[type="date"], textarea {
 
 /* 表单项之间的间距 */
 form div {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 /* 提交按钮的样式 */
