@@ -73,17 +73,17 @@ button:hover {
     background-color: #ff6f00;
 }
 
-/* Layout adjustments for subject and time options */
+/* Layout for subject and time options (single column) */
 .subject-options, .time-options {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns layout */
-    gap: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin-bottom: 15px;
 }
 
 /* Make sure the input fields are consistent in size */
 .subject-options input, .time-options input {
-    width: 100%;
+    width: auto;
     padding: 8px;
 }
 
@@ -95,10 +95,6 @@ button:hover {
 
     .form-group {
         margin-bottom: 12px;
-    }
-
-    .subject-options, .time-options {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns layout on small screens */
     }
 
     button {
