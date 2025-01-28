@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>感谢报名</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>感谢您的报名！</h1>
-    <p>我们已经收到您的信息，稍后会与您联系。</p>
+    <div class="container">
+        <h1>感谢您的报名，{{ name }}！</h1>
+        <p>您来自 {{ school }}，我们会尽快与您联系。</p>
+        <a href="/">返回首页</a>
+    </div>
 </body>
 </html>
