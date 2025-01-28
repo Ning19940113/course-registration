@@ -17,7 +17,7 @@ class Student(db.Model):
     remarks = db.Column(db.String(500), nullable=True)
 
 # 创建表
-@app.before_request
+@app.before_first_request
 def create_tables():
     db.create_all()
 
