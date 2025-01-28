@@ -1,40 +1,57 @@
 from flask import Flask, render_template, request
+from flask_sqlalchemy import SQLAlchemy
 
+# 创建Flask应用
 app = Flask(__name__)
+
+# 配置数据库
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'  # 使用SQLite数据库
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # 禁止SQLAlchemy追踪数据库修改
+db = SQLAlchemy(app)  # 创建SQLAlchemy实例
+
+# 创建数据库模型
+class RegistrationForm(db.Model):
+    id = db.Column(db.Integer, primary_key=True)  # 主键
+    name = db.Column(db.String(100), nullable=False)  # 学生姓名
+    grade = db.Column(db.String(50), nullable=False)  # 年级
+    subjects = db.Column(db.String(200), nullable=False)  # 所选科目
+    time_slots = db.Column(db.String(200), nullable=False)  # 所选时间段
+    school = db.Column(db.String(100), nullable=True)  # 学校（可选）
+
+    def __repr__(self):
+        return f'<RegistrationForm {self.name}>'
+
+# 初始化数据库
+with app.app_context():
+    db.create_all()
 
 @app.route('/')
 def index():
-    return render_template('form.html')  # 显示表单页面
+    return render_template('form.html')
 
 @app.route('/submit', methods=['POST'])
 def submit():
+    # 获取表单数据
     name = request.form['name']
     grade = request.form['grade']
-    
-    # 获取多选科目
-    subjects = request.form.getlist('subject')
-    
-    # 获取每个科目的意向上课时间
-    subject_times = {}
-    for subject in subjects:
-        subject_time = request.form.get(subject + '-time')  # 动态生成的时间字段
-        if subject_time:
-            subject_times[subject] = subject_time
-    
-    # 获取具体上课时间
-    day = request.form['day']
-    start_time = request.form['start_time']
-    end_time = request.form['end_time']
-    
-    # 显示提交的数据
-    return f"""
-    报名成功！<br>
-    学生姓名：{name} <br>
-    年级：{grade} <br>
-    科目：{', '.join(subjects)} <br>
-    意向上课时间：{', '.join([f'{subject}: {subject_times.get(subject)}' for subject in subjects])} <br>
-    上课时间：{day} {start_time} 到 {end_time}
-    """
+    subjects = ', '.join(request.form.getlist('subjects'))  # 获取多个选项
+    time_slots = ', '.join(request.form.getlist('time_slots'))  # 获取多个选项
+    school = request.form['school']
+
+    # 创建新的表单提交记录
+    new_submission = RegistrationForm(
+        name=name,
+        grade=grade,
+        subjects=subjects,
+        time_slots=time_slots,
+        school=school
+    )
+
+    # 添加到数据库并提交
+    db.session.add(new_submission)
+    db.session.commit()
+
+    return render_template('thank_you.html', name=name)
 
 if __name__ == '__main__':
     app.run(debug=True)
