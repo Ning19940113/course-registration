@@ -5,21 +5,21 @@
     box-sizing: border-box;
 }
 
-/* Container styles */
+/* Container styles: adding padding and centering */
 .container {
-    width: 100%; /* 容器宽度为100% */
-    max-width: 1200px; /* 限制最大宽度 */
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
-    padding-top: 20px;
+    padding: 20px;
     background-color: #f5c2a1; /* 淡橙色背景 */
 }
 
 /* Header styles */
 h1 {
     text-align: center;
-    color: #003366; /* 深蓝色 */
+    color: #003366;
     font-size: 2rem;
-    font-weight: bold; /* 加粗显示 */
+    font-weight: bold;
     margin-bottom: 20px;
 }
 
@@ -29,6 +29,7 @@ form {
     flex-direction: column;
 }
 
+/* Form group styles */
 .form-group {
     margin-bottom: 15px;
 }
@@ -38,10 +39,10 @@ label {
     font-size: 1.1rem;
     margin-bottom: 5px;
     display: inline-block;
-    font-weight: bold; /* 标题加粗 */
+    font-weight: bold;
 }
 
-/* Input styles */
+/* Input fields and textareas */
 input[type="text"], input[type="email"], input[type="number"], select, textarea {
     width: 100%;
     padding: 8px;
@@ -75,17 +76,18 @@ button:hover {
 /* Layout adjustments for subject and time options */
 .subject-options, .time-options {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3列布局 */
-    gap: 15px; /* 间隙 */
+    grid-template-columns: repeat(3, 1fr); /* 3 columns layout */
+    gap: 20px;
     margin-bottom: 15px;
 }
 
+/* Make sure the input fields are consistent in size */
 .subject-options input, .time-options input {
-    width: 100%; /* 每个选项占满1列 */
+    width: 100%;
     padding: 8px;
 }
 
-/* Responsive styles */
+/* Layout for small screens */
 @media (max-width: 768px) {
     h1 {
         font-size: 1.5rem;
@@ -96,6 +98,10 @@ button:hover {
     }
 
     .subject-options, .time-options {
-        grid-template-columns: repeat(2, 1fr); /* 小屏幕时，每行展示2列 */
+        grid-template-columns: repeat(2, 1fr); /* 2 columns layout on small screens */
+    }
+
+    button {
+        width: 100%;
     }
 }
