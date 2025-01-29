@@ -9,9 +9,9 @@ app = Flask(__name__)
 app.config['MAIL_SERVER'] = 'smtp.qq.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
-app.config['MAIL_USERNAME'] = 'your-email@qq.com'  # QQ邮箱
-app.config['MAIL_PASSWORD'] = 'your-authorization-code'  # QQ邮箱授权码
-app.config['MAIL_DEFAULT_SENDER'] = 'your-email@qq.com'
+app.config['MAIL_USERNAME'] = '405429005@qq.com'  # QQ邮箱
+app.config['MAIL_PASSWORD'] = 'jhjznoiuozjhcbdf'  # QQ邮箱授权码
+app.config['MAIL_DEFAULT_SENDER'] = '405429005@qq.com'
 
 mail = Mail(app)
 
