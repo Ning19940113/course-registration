@@ -1,53 +1,52 @@
-from flask import Flask, render_template, request
-from flask_sqlalchemy import SQLAlchemy
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双研教育报名表单</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>双研教育报名系统</h1>
+    <form method="POST">
+        <label for="name">学生姓名：</label>
+        <input type="text" id="name" name="name" required placeholder="请输入学生姓名">
+        <br><br>
 
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///registrations.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-db = SQLAlchemy(app)
+        <label for="school">学校：</label>
+        <input type="text" id="school" name="school" required placeholder="请输入所在学校">
+        <br><br>
 
-# 定义数据库模型
-class Registration(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
-    school = db.Column(db.String(100), nullable=False)
-    subject = db.Column(db.String(50), nullable=False)
-    day = db.Column(db.String(100), nullable=False)  # 存储选中的星期，多个用逗号分隔
-    time = db.Column(db.String(50), nullable=False)
-    remarks = db.Column(db.String(255), nullable=True)
+        <label for="subject">选择科目：</label>
+        <select name="subject" id="subject" required>
+            <option value="math">数学</option>
+            <option value="english">英语</option>
+            <option value="physics">物理</option>
+        </select>
+        <br><br>
 
-# 创建数据库
-@app.before_first_request
-def create_tables():
-    db.create_all()
+        <label>选择意向上课时间：</label>
+        <input type="checkbox" name="day" value="monday"> 周一
+        <input type="checkbox" name="day" value="tuesday"> 周二
+        <input type="checkbox" name="day" value="wednesday"> 周三
+        <input type="checkbox" name="day" value="thursday"> 周四
+        <input type="checkbox" name="day" value="friday"> 周五
+        <br><br>
 
-@app.route('/', methods=['GET', 'POST'])
-def index():
-    if request.method == 'POST':
-        # 获取表单数据
-        name = request.form.get('name')
-        school = request.form.get('school')
-        subject = request.form.get('subject')
-        day = ', '.join(request.form.getlist('day'))  # 将选择的星期合并为逗号分隔字符串
-        time = request.form.get('time')
-        remarks = request.form.get('remarks')
+        <label for="time">选择时间段：</label>
+        <select name="time" id="time" required>
+            <option value="08:00-10:00">08:00-10:00</option>
+            <option value="10:00-12:00">10:00-12:00</option>
+            <option value="14:00-16:00">14:00-16:00</option>
+            <option value="16:00-18:00">16:00-18:00</option>
+        </select>
+        <br><br>
 
-        # 保存数据到数据库
-        registration = Registration(
-            name=name,
-            school=school,
-            subject=subject,
-            day=day,
-            time=time,
-            remarks=remarks
-        )
-        db.session.add(registration)
-        db.session.commit()
+        <label for="remarks">备注：</label>
+        <textarea id="remarks" name="remarks" rows="4" placeholder="填写其他备注"></textarea>
+        <br><br>
 
-        # 返回感谢页面
-        return render_template('thank_you.html', name=name, school=school, subject=subject, day=day, time=time, remarks=remarks)
-
-    return render_template('form.html')
-
-if __name__ == '__main__':
-    app.run(debug=True)
+        <button type="submit">提交报名</button>
+    </form>
+</body>
+</html>
