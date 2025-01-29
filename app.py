@@ -37,5 +37,7 @@ def submit():
         return render_template('thank_you.html')
 
 if __name__ == '__main__':
-    db.create_all()  # 创建数据库表
+    # 使用应用上下文创建数据库表
+    with app.app_context():
+        db.create_all()  # 创建数据库表
     app.run(debug=True)
