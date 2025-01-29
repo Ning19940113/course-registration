@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>查看报名记录</title>
+</head>
+<body>
+    <h1>报名记录</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>学校</th>
+                <th>科目</th>
+                <th>意向上课时间</th>
+                <th>时间段</th>
+                <th>备注</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for registration in registrations %}
+                <tr>
+                    <td>{{ registration.name }}</td>
+                    <td>{{ registration.school }}</td>
+                    <td>{{ registration.subject }}</td>
+                    <td>{{ registration.day }}</td>
+                    <td>{{ registration.time }}</td>
+                    <td>{{ registration.remarks }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br><br>
+    <a href="/">返回首页</a>
+</body>
+</html>
