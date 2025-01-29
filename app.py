@@ -67,7 +67,7 @@ def submit():
                                         day=day, time=time, remarks=remarks)
         db.session.add(new_registration)
         db.session.commit()
-send_email(
+        send_email(
         subject='Course Registration Confirmation',
         recipient='recipient@example.com',  # 这里填写管理员或用户邮箱
         body='Form submitted successfully!'
