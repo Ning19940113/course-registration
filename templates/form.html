@@ -4,43 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>双研教育报名系统</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>双研教育报名系统</h1>
-    <form action="/" method="POST">
-        <label for="name">姓名：</label>
-        <input type="text" id="name" name="name" required><br><br>
+    <div class="container">
+        <h1>双研教育报名系统</h1>
+        <form action="/" method="POST">
+            <label for="name">学生姓名：</label>
+            <input type="text" id="name" name="name" required>
 
-        <label for="school">所在学校：</label>
-        <input type="text" id="school" name="school" required><br><br>
+            <label for="school">所在学校：</label>
+            <input type="text" id="school" name="school" required>
 
-        <label for="subject">选择科目：</label>
-        <select id="subject" name="subject" required>
-            <option value="math">数学</option>
-            <option value="english">英语</option>
-            <option value="physics">物理</option>
-        </select><br><br>
+            <label for="subject">选择科目：</label>
+            <select id="subject" name="subject" required>
+                <option value="math">数学</option>
+                <option value="english">英语</option>
+                <option value="physics">物理</option>
+            </select>
 
-        <label for="day">选择上课日期：</label><br>
-        <input type="checkbox" name="day" value="monday"> 周一
-        <input type="checkbox" name="day" value="tuesday"> 周二
-        <input type="checkbox" name="day" value="wednesday"> 周三
-        <input type="checkbox" name="day" value="thursday"> 周四
-        <input type="checkbox" name="day" value="friday"> 周五
-        <input type="checkbox" name="day" value="saturday"> 周六
-        <input type="checkbox" name="day" value="sunday"> 周日<br><br>
+            <label for="day">意向上课时间：</label><br>
+            <label><input type="checkbox" name="day" value="monday"> 周一</label>
+            <label><input type="checkbox" name="day" value="tuesday"> 周二</label>
+            <label><input type="checkbox" name="day" value="wednesday"> 周三</label>
+            <label><input type="checkbox" name="day" value="thursday"> 周四</label>
+            <label><input type="checkbox" name="day" value="friday"> 周五</label>
+            <label><input type="checkbox" name="day" value="saturday"> 周六</label>
+            <label><input type="checkbox" name="day" value="sunday"> 周日</label>
 
-        <label for="time">选择时间段：</label><br>
-        <input type="radio" name="time" value="9-11"> 9:00-11:00
-        <input type="radio" name="time" value="14-16"> 14:00-16:00
-        <input type="radio" name="time" value="18-20"> 18:00-20:00<br><br>
+            <label for="time">选择时间段：</label><br>
+            <label><input type="radio" name="time" value="10-12" required> 10:00-12:00</label>
+            <label><input type="radio" name="time" value="13:30-15:30" required> 13:30-15:30</label>
+            <label><input type="radio" name="time" value="16-18" required> 16:00-18:00</label>
+            <label><input type="radio" name="time" value="18:30-20:30" required> 18:30-20:30</label>
 
-        <label for="remarks">备注：</label>
-        <textarea id="remarks" name="remarks"></textarea><br><br>
+            <label for="remarks">备注：</label>
+            <textarea id="remarks" name="remarks" rows="4"></textarea>
 
-        <input type="submit" value="提交报名">
-    </form>
+            <button type="submit">提交报名</button>
+        </form>
+    </div>
 </body>
 </html>

@@ -1,59 +1,58 @@
 body {
-    background-color: #f4f4f4;
     font-family: Arial, sans-serif;
-    color: #333;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
 
-h1 {
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 20px;
+.container {
+    width: 80%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-form {
-    max-width: 600px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+h1 {
+    text-align: center;
+    color: #333;
 }
 
 label {
     display: block;
-    margin: 10px 0 5px;
+    margin-bottom: 8px;
     font-weight: bold;
 }
 
-input[type="text"],
-input[type="submit"],
-select,
-textarea {
+input[type="text"], input[type="email"], input[type="password"], select, textarea {
     width: 100%;
     padding: 8px;
-    margin-bottom: 20px;
-    border: 1px solid #ddd;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
     border-radius: 4px;
 }
 
-input[type="submit"] {
-    background-color: #3498db;
-    color: #fff;
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
     border: none;
-    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
-input[type="submit"]:hover {
-    background-color: #2980b9;
+button:hover {
+    background-color: #45a049;
 }
 
-textarea {
-    height: 100px;
+ul {
+    list-style: none;
+    padding: 0;
 }
 
-input[type="checkbox"],
-input[type="radio"] {
-    margin-right: 10px;
+ul li {
+    margin-bottom: 10px;
 }

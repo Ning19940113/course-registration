@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>感谢报名</title>
+    <title>感谢您的提交</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>感谢您的报名！</h1>
-    <p>我们已经收到您的信息，稍后会与您联系。</p>
+    <div class="container">
+        <h1>感谢您的提交，{{ name }}！</h1>
+        <p>您的报名信息如下：</p>
+        <ul>
+            <li><strong>学生姓名：</strong>{{ name }}</li>
+            <li><strong>所在学校：</strong>{{ school }}</li>
+            <li><strong>选择科目：</strong>{{ subject }}</li>
+            <li><strong>意向上课时间：</strong>{{ day }}</li>
+            <li><strong>时间段：</strong>{{ time }}</li>
+            <li><strong>备注：</strong>{{ remarks }}</li>
+        </ul>
+        <a href="/">返回首页</a>
+    </div>
 </body>
 </html>
