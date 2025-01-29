@@ -17,8 +17,7 @@ class Registration(db.Model):
     remarks = db.Column(db.String(255), nullable=True)
 
 # 创建数据库
-@app.before_first_request
-def create_tables():
+def create_db():
     db.create_all()
 
 @app.route('/', methods=['GET', 'POST'])
@@ -50,4 +49,5 @@ def index():
     return render_template('form.html')
 
 if __name__ == '__main__':
+    create_db()  # 在应用启动时创建数据库
     app.run(debug=True)
