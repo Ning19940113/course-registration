@@ -1,7 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail, Message
-
+def send_email(subject, recipient, body):
+    try:
+        msg = Message(subject=subject, recipients=[recipient], body=body)
+        mail.send(msg)  # 发送邮件
+        print("Email sent successfully!")  # 打印成功日志
+    except Exception as e:
+        print(f"Failed to send email: {str(e)}")  # 捕获异常并打印失败日志
 # 创建Flask应用
 app = Flask(__name__)
 
@@ -61,6 +67,11 @@ def submit():
                                         day=day, time=time, remarks=remarks)
         db.session.add(new_registration)
         db.session.commit()
+send_email(
+        subject='Course Registration Confirmation',
+        recipient='recipient@example.com',  # 这里填写管理员或用户邮箱
+        body='Form submitted successfully!'
+    )
 
         return render_template('thank_you.html')
 
