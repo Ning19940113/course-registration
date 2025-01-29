@@ -1,5 +1,33 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+from flask_mail import Mail, Message
+
+# 创建Flask应用
+app = Flask(__name__)
+
+# 配置邮件服务
+app.config['MAIL_SERVER'] = 'smtp.qq.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USE_SSL'] = True
+app.config['MAIL_USERNAME'] = 'your-email@qq.com'  # QQ邮箱
+app.config['MAIL_PASSWORD'] = 'your-authorization-code'  # QQ邮箱授权码
+app.config['MAIL_DEFAULT_SENDER'] = 'your-email@qq.com'
+
+mail = Mail(app)
+
+# 其他Flask应用配置和数据库配置
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///registrations.db'
+db = SQLAlchemy(app)
+
+# 创建数据库模型等其他代码...
+
+# 发送邮件函数
+def send_email(subject, recipient, body):
+    msg = Message(subject, recipients=[recipient], body=body)
+    mail.send(msg)
+
+# 路由和视图函数...
+
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///registration.db'
@@ -40,4 +68,5 @@ if __name__ == '__main__':
     # 使用应用上下文创建数据库表
     with app.app_context():
         db.create_all()  # 创建数据库表
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
+
