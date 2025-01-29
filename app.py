@@ -1,9 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail, Message
-app = Flask(__name__)
-# 创建 Mail 实例
-mail = Mail(app)
 def send_email(subject, recipient, body):
     try:
         msg = Message(subject=subject, recipients=[recipient], body=body)
