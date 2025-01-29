@@ -62,9 +62,6 @@ def view_submissions():
     return render_template('view_submissions.html', registrations=registrations)
 
 # 运行时创建数据库
-@app.before_first_request
-def before_first_request():
-    create_db()
-
 if __name__ == "__main__":
+    create_db()  # 手动创建数据库
     app.run(debug=True)
