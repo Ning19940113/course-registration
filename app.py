@@ -18,7 +18,8 @@ class Registration(db.Model):
 
 # 创建数据库
 def create_db():
-    db.create_all()
+    with app.app_context():  # 使用应用上下文
+        db.create_all()
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
